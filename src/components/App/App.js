@@ -7,9 +7,9 @@ import Header from '../Header/Header';
 const App = () => {
   const [city, setCity] = useState({})
   
-  const fetchCall = (city) => {
-    fetchData(city)
-    .then(data => setCity(data))
+  const fetchCall = async (city) => {
+    const fetched = await fetchData(city)
+    setCity(fetched)
   }
 
   const retrieveCity = (city) => {
