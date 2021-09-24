@@ -35,7 +35,6 @@ const SearchBar = ({ retrieveCity }) => {
           
         <div>
           <input {...getInputProps({ placeholder: 'City' } )} />
-
           <div>
             {loading ? <div>...loading</div> : null}
             {suggestions.map(suggestion => {
@@ -44,10 +43,8 @@ const SearchBar = ({ retrieveCity }) => {
                 color: suggestion.active ? '#fff' : '#000000'
               }
               return ( 
-                <div 
-                key={suggestion.placeId}
-                {...getSuggestionItemProps(suggestion, { style } ) 
-                }>
+                <div key={suggestion.placeId} 
+                {...getSuggestionItemProps(suggestion, { style } ) }>
                   {suggestion.description} 
                 </div>
               );
