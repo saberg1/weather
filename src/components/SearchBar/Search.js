@@ -10,14 +10,11 @@ const SearchBar = ({ retrieveCity }) => {
   })
 
   const handleClick = (city) => {
-    // console.log(retrieveCity, ' :props on handleClick');
     const formatedCity = city.split(' ')[0]
     retrieveCity(formatedCity)
-    // console.log(value.split(' ')[0], ' :state on handleClick ');
   }
 
   const handleSelect = async (value) => {
-    // console.log('handleSelect invoked');
     const result = await geocodeByAddress(value)
     const latLng = await getLatLng(result[0])
     setCoordinates(latLng)
@@ -29,6 +26,7 @@ const SearchBar = ({ retrieveCity }) => {
     <div className='search'>
       <PlacesAutocomplete value={city} onChange={setCity} onSelect={handleSelect}>
         { ( { getInputProps, suggestions, getSuggestionItemProps, loading } ) => (
+          
         <div>
           <p>Latitude: {coordinates.lat}</p>
           <p>Longitude: {coordinates.lng}</p>
