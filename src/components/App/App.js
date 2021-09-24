@@ -1,15 +1,19 @@
 import { fetchData } from '../../apiCalls';
 import { useEffect, useState } from 'react';
-import './App.css';
 import SearchBar from '../SearchBar/Search';
 import Header from '../Header/Header';
+import { Route, Switch } from 'react-router';
+// import CityCard from '../CityCard/CityCard';
+import CityContainer from '../CityContainer/CityContainer';
+import './App.css';
 
 const App = () => {
-  const [city, setCity] = useState({})
+  const [city, setCity] = useState([])
+  const [afterDisplay, setafterDisplay] = useState(false)
   
   const fetchCall = async (city) => {
     const fetched = await fetchData(city)
-    setCity(fetched)
+    setCity([fetched])
   }
 
   const retrieveCity = (city) => {
@@ -20,10 +24,15 @@ const App = () => {
   }, [])
   
   return (
-    <main>
-      <Header>
-      <SearchBar retrieveCity={retrieveCity}/>
-      </Header>
+    <main className='main'>
+      {/* <Switch> */}
+        <div className='header-controller'>
+          <Header />
+          <SearchBar retrieveCity={retrieveCity} />
+        </div>
+        <CityContainer city={city}/>
+        {/* {city && } */}
+      {/* </Switch> */}
     </main>
   );
 }
