@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import PlacesAutocomplete, { geocodeByAddress, geocodeByPlaceId, getLatLng } from 'react-places-autocomplete';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import './Search.css';
 
 const SearchBar = ({ retrieveCity }) => {
@@ -12,6 +12,7 @@ const SearchBar = ({ retrieveCity }) => {
   const handleClick = (city) => {
     const formatedCity = city.split(' ')[0]
     retrieveCity(formatedCity)
+    setCity('')
   }
 
   const handleSelect = async (value) => {
@@ -24,12 +25,15 @@ const SearchBar = ({ retrieveCity }) => {
 
   return(
     <div className='search'>
-      <PlacesAutocomplete value={city} onChange={setCity} onSelect={handleSelect}>
+      <PlacesAutocomplete 
+        value={city} 
+        onChange={setCity} 
+        onSelect={handleSelect}
+        searchOptions={ {types: ["(cities)"]} }
+      >
         { ( { getInputProps, suggestions, getSuggestionItemProps, loading } ) => (
           
         <div>
-          <p>Latitude: {coordinates.lat}</p>
-          <p>Longitude: {coordinates.lng}</p>
           <input {...getInputProps({ placeholder: 'City' } )} />
 
           <div>
@@ -40,7 +44,10 @@ const SearchBar = ({ retrieveCity }) => {
                 color: suggestion.active ? '#fff' : '#000000'
               }
               return ( 
-                <div {...getSuggestionItemProps(suggestion, { style } ) }>
+                <div 
+                key={suggestion.placeId}
+                {...getSuggestionItemProps(suggestion, { style } ) 
+                }>
                   {suggestion.description} 
                 </div>
               );
