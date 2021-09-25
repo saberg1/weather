@@ -8,9 +8,7 @@ export const cleanData = (data) => {
 
   data.main.temp_min = Math.round(((((data.main.temp_min) - 273.15) * 1.8)) + 32);
 
-  // const hiTemp = data.main.temp_max
-
-  // console.log(hiTemp, ' :hitemp inside tils');
+  data.isFavorited = false
 
   return data
 }
