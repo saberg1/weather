@@ -13,9 +13,18 @@ const CityContainer = ({ cities, handleFavorite }) => {
         // removeFromFavorites(data)
       } else {
         data.isFavorited = true
-        // addToFavorites(data)
+        saveLocStor(data)
       }
     console.log('data.isFavorited: ', data.isFavorited);
+    //call next function to run depeneding on if favorted or unfavored
+  }
+
+  const addFav = () => {
+    saveLocStor()
+  }
+
+  const saveLocStor = (obj) => {
+    localStorage.setItem(obj.id, JSON.stringify(obj))
   }
 
     const cityCards = cities.map( ele => {
