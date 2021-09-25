@@ -1,0 +1,9 @@
+.city-container {
+  border: 2px solid red;
+}
+
+/* @media only screen and (min-width: 1920px) { 
+  .city-container{
+   width: 1920px; 
+  }
+} */
