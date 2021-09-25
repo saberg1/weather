@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import SearchBar from '../SearchBar/Search';
+// import { useState } from 'react';
+// import SearchBar from '../SearchBar/Search';
 import './Header.css';
 
 const Header = ({ children }) => {
-  const [display, setDisplay] = useState(false)
+  // const [display, setDisplay] = useState(false)
 
   return (
     <header className='header'>
