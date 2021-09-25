@@ -2,13 +2,13 @@
 // import SearchBar from '../SearchBar/Search';
 import './Header.css';
 
-const Header = ({ children }) => {
+const Header = ({ renderPage }) => {
   // const [display, setDisplay] = useState(false)
 
   return (
     <header className='header'>
       <h1>Weather App</h1>
-      {children}
+      <button onClick={renderPage}> Show Favorites </button>
     </header>
   )
 }

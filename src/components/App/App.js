@@ -16,6 +16,12 @@ const App = () => {
     const cleanedData = await cleanData(fetched) 
     addCity ( cleanedData )
   }
+  //filter through cities, find the ones with isFavorited propery and add them to array -- should be state?
+  // ormake array inside function
+
+  const renderPage = () => {
+    console.log('renderPage invoked');
+  }
 
   const retrieveCity = (data) => {
     fetchCall(data)
@@ -26,9 +32,7 @@ const App = () => {
   }
 
   const handleFavorite = (data) => {
-    // data.isFavorited = !data.isFavorited
     console.log(data.isFavorited, ` :${data.name} inside INSIDE HANDLE FAVORITE APP.JS`);
-
   }
   
   useEffect(() => {
@@ -38,7 +42,7 @@ const App = () => {
   return (
     <main className='main'>
         <div className='header-controller'>
-          <Header />
+          <Header renderPage={renderPage} />
           <SearchBar retrieveCity={retrieveCity} />
         </div>
         <CityContainer handleFavorite={handleFavorite} cities={cities}/>
