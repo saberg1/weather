@@ -9,9 +9,9 @@ const SearchBar = ({ retrieveCity }) => {
     lng: null
   })
 
-  const handleClick = (city) => {
+  const handleClick = (city) => { //
     const formatedCity = city.split(' ')[0]
-    retrieveCity(formatedCity)
+    retrieveCity(formatedCity) //invokes city with just first name
     setCity('')
   }
 
@@ -19,8 +19,8 @@ const SearchBar = ({ retrieveCity }) => {
     const result = await geocodeByAddress(value)
     const latLng = await getLatLng(result[0])
     setCoordinates(latLng)
-    setCity(value)
-    handleClick(value)
+    setCity(result)
+    handleClick(value) // calls api call
   }
 
   return(
