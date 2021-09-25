@@ -9,16 +9,12 @@ import CityContainer from '../CityContainer/CityContainer';
 import './App.css';
 
 const App = () => {
-  // const [city, setCity] = useState({})
   const [cities, setCities] = useState([])
   
   const fetchCall = async (data) => {
     const fetched = await fetchData(data)
-    const cleanedData = await cleanData(fetched) //complete city object
-    // const testCities = await addCity()
-    // setCity( cleanedData )
+    const cleanedData = await cleanData(fetched) 
     addCity ( cleanedData )
-    // setCities( cleanedData )
   }
 
   const retrieveCity = (data) => {
