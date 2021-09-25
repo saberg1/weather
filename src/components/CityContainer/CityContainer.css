@@ -1,4 +1,5 @@
 .city-container {
+  display: flex;
   border: 2px solid red;
 }
 

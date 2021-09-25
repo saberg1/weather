@@ -9,16 +9,12 @@ import CityContainer from '../CityContainer/CityContainer';
 import './App.css';
 
 const App = () => {
-  // const [city, setCity] = useState({})
   const [cities, setCities] = useState([])
   
-  const fetchCall = async (data) => {
-    const fetched = await fetchData(data)
-    const cleanedData = await cleanData(fetched) //complete city object
-    // const testCities = await addCity()
-    // setCity( cleanedData )
+  const fetchCall = async (city) => {
+    const fetched = await fetchData(city)
+    const cleanedData = await cleanData(fetched) 
     addCity ( cleanedData )
-    // setCities( cleanedData )
   }
 
   const retrieveCity = (data) => {
@@ -27,6 +23,10 @@ const App = () => {
 
   const addCity = (city) => {
     setCities( [...cities, city] )
+  }
+
+  const handleFavorite = () => {
+    console.log('handleFavorite invoked in App.js');
   }
   
   useEffect(() => {
@@ -39,7 +39,7 @@ const App = () => {
           <Header />
           <SearchBar retrieveCity={retrieveCity} />
         </div>
-        <CityContainer cities={cities}/>
+        <CityContainer handleFavorite={handleFavorite} cities={cities}/>
     </main>
   //   <main className='main'>
   //   <Switch>
