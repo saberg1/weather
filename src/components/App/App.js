@@ -20,7 +20,12 @@ const App = () => {
   // ormake array inside function
 
   const renderPage = () => {
-    console.log('renderPage invoked');
+    // console.log('renderPage invoked');
+    const arr = [ ]
+
+    const filtered = cities.filter(city => city.isFavorited === true)
+
+    console.log(filtered, 'filtered variable renderPage function App.js');
   }
 
   const retrieveCity = (data) => {
