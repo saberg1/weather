@@ -1,39 +1,62 @@
 import { fetchData } from '../../apiCalls';
 import { useEffect, useState } from 'react';
+import Saved from '../Saved/Saved';
 import SearchBar from '../SearchBar/Search';
 import Header from '../Header/Header';
 import { Route, Switch } from 'react-router';
-// import CityCard from '../CityCard/CityCard';
+import { cleanData } from '../../utils';
 import CityContainer from '../CityContainer/CityContainer';
 import './App.css';
 
 const App = () => {
-  const [city, setCity] = useState([])
-  const [afterDisplay, setafterDisplay] = useState(false)
+  // const [city, setCity] = useState({})
+  const [cities, setCities] = useState([])
   
-  const fetchCall = async (city) => {
-    const fetched = await fetchData(city)
-    setCity([fetched])
+  const fetchCall = async (data) => {
+    const fetched = await fetchData(data)
+    const cleanedData = await cleanData(fetched) //complete city object
+    // const testCities = await addCity()
+    // setCity( cleanedData )
+    addCity ( cleanedData )
+    // setCities( cleanedData )
   }
 
-  const retrieveCity = (city) => {
-    fetchCall(city)
+  const retrieveCity = (data) => {
+    fetchCall(data)
+  }
+
+  const addCity = (city) => {
+    setCities( [...cities, city] )
   }
   
   useEffect(() => {
+    
   }, [])
   
   return (
     <main className='main'>
-      {/* <Switch> */}
         <div className='header-controller'>
           <Header />
           <SearchBar retrieveCity={retrieveCity} />
         </div>
-        <CityContainer city={city}/>
-        {/* {city && } */}
-      {/* </Switch> */}
+        <CityContainer cities={cities}/>
     </main>
+  //   <main className='main'>
+  //   <Switch>
+  //     <Route exact path='/home' render={() => {
+  //       <div className='main-container'>
+  //         <div className='header-controller'>
+  //           <Header />
+  //           <SearchBar retrieveCity={retrieveCity} />
+  //         </div>
+  //         <CityContainer city={city}/>
+  //       </div>
+  //     }} />
+  //     <Route exact path='/saved' render={() => {
+  //       <Saved />
+  //     }} />
+  //   </Switch>
+  // </main>
   );
 }
 
