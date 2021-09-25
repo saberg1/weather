@@ -2,10 +2,10 @@ import './CityCard.css';
 
 const CityCard = ({ updateFavorite, cities, name, hiTemp, loTemp, icon, weather }) => {
 
-  const test = () => {
+  // const test = () => {
 
-    console.log(cities, 'cities prop in CityCard');
-  }
+  //   console.log(cities, 'cities prop in CityCard');
+  // }
   
   return(
     <article className='city-card'>
@@ -14,10 +14,8 @@ const CityCard = ({ updateFavorite, cities, name, hiTemp, loTemp, icon, weather 
       {/* <h3></h3> */}
       <img src={icon}/>
       <h3>{weather}</h3>
-      <button className='favorite' onClick={() => {
-        updateFavorite(cities);
-         test(cities)}
-        }>❤️</button>
+      <button className='favorite' 
+        onClick={() => updateFavorite(cities)}>❤️</button>
     </article>
   )
 };

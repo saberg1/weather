@@ -25,8 +25,10 @@ const App = () => {
     setCities( [...cities, city] )
   }
 
-  const handleFavorite = () => {
-    console.log('handleFavorite invoked in App.js');
+  const handleFavorite = (data) => {
+    // data.isFavorited = !data.isFavorited
+    console.log(data.isFavorited, ` :${data.name} inside INSIDE HANDLE FAVORITE APP.JS`);
+
   }
   
   useEffect(() => {
