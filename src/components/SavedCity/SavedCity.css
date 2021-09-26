@@ -1,0 +1,14 @@
+.city-card {
+  /* border: 2px solid greenyellow; */
+  color:#0C8080;
+  background-color: white;
+  box-sizing: border-box;
+  border: 4px solid #0C8080;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 2rem;
+}
+
+.favorite {
+  width: 30px;
+}

@@ -1,6 +1,6 @@
 import { fetchData } from '../../apiCalls';
 import { useEffect, useState } from 'react';
-import Saved from '../Saved/Saved';
+import SavedContainer from '../SavedContainer/SavedContainer';
 import SearchBar from '../SearchBar/Search';
 import Header from '../Header/Header';
 import { Route, Switch } from 'react-router';
@@ -10,6 +10,7 @@ import './App.css';
 
 const App = () => {
   const [cities, setCities] = useState([])
+  const [favCities, setFavCities] = useState([])
   
   const fetchCall = async (city) => {
     const fetched = await fetchData(city)
@@ -21,13 +22,12 @@ const App = () => {
 
   const renderPage = () => {
     // console.log('renderPage invoked');
-    const arr = [ ]
+    // const arr = [ ]
 
     const filtered = cities.filter(city => city.isFavorited === true)
 
-    filtered.forEach(city => console.log(city.name, 'cities inside isFavorited array App.js'))
-    // console.log(filtered, 'renderPage invoked App.js');
-    
+    // filtered.forEach(city => console.log(city.name, 'cities inside isFavorited array App.js'))
+    setFavCities(filtered)
   }
 
   const retrieveCity = (data) => {
@@ -39,7 +39,8 @@ const App = () => {
   }
 
   const handleFavorite = (data) => {
-    // console.log(data.isFavorited, ` :${data.name} inside INSIDE HANDLE FAVORITE APP.JS`);
+    // const filtered = cities.filter(city => city.isFavorited === true)
+
   }
   
   useEffect(() => {
@@ -48,32 +49,50 @@ const App = () => {
   
   return (
     <main className='main'>
-        <div className='header-controller'>
-          <Header renderPage={renderPage} />
-          <SearchBar retrieveCity={retrieveCity} />
-        </div>
-        <CityContainer handleFavorite={handleFavorite} cities={cities}/>
+      <Header renderPage={renderPage} >
+        <SearchBar retrieveCity={retrieveCity} />
+      </Header>
+      <Switch>
+        <Route exact path='/' render={() => <CityContainer
+          cities={cities}
+          handleFavorite={handleFavorite}
+        />}/>
+        <Route path='/saved' render={() => <SavedContainer 
+          favorites={favCities}
+        /> } />
+      </Switch>
     </main>
-  //   <main className='main'>
-  //   <Switch>
-  //     <Route exact path='/home' render={() => {
-  //       <div className='main-container'>
-  //         <div className='header-controller'>
-  //           <Header />
-  //           <SearchBar retrieveCity={retrieveCity} />
-  //         </div>
-  //         <CityContainer city={city}/>
-  //       </div>
-  //     }} />
-  //     <Route exact path='/saved' render={() => {
-  //       <Saved />
-  //     }} />
-  //   </Switch>
-  // </main>
-  );
-}
+    );
+  }
+  export default App;
+  // {
+  //   <CityContainer 
+  //   handleFavorite={handleFavorite} 
+  //   cities={cities}
+  //   />} 
+  
+  {/* <main className='main'>
+  <CityContainer handleFavorite={handleFavorite} cities={cities}/>  <<<<< the render line code
+<Header renderPage={renderPage} >
+  <SearchBar retrieveCity={retrieveCity} />
+</Header>
+<Switch>
+<div className='header-controller'> 
+   </div> 
+  <Route exact path='/' render={() => {
+    <CityContainer 
+      handleFavorite={handleFavorite} 
+      cities={cities}
+    />
+  }}/>
+  <Route path='/saved' component={Saved} />
+  <CityContainer handleFavorite={handleFavorite} cities={cities}/> 
+  <Saved /> 
+</Switch>
+</main>  */}
+  
 
-export default App;
+// export default App;
 
 // const indy = {
 //   coord: {
