@@ -45,7 +45,7 @@ const App = () => {
     // console.log(data, ' :addFav(data) invoked App.js');
     data.isFavorited = true
     setFavCities([...favCities, data])
-    handleFavorite(data)
+    // handleFavorite(data)
     saveLocStor(data)
   }
 
@@ -54,7 +54,7 @@ const App = () => {
     data.isFavorited = false
     const removeFav = favCities.filter(city => city.id !== data.id)
     setFavCities(removeFav)
-    handleFavorite(data)
+    // handleFavorite(data)
     remLocStor(data)
   }
 
