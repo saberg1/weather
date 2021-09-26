@@ -51,7 +51,7 @@ const App = () => {
     const remFav = (data) => {
       data.isFavorited = false
       const foundCity = cities.find(city => city.id === data.id)
-      foundCity.isFavorited = false
+      if(foundCity){foundCity.isFavorited = false}
       const removeFav = favCities.filter(city => city.id !== data.id)
       setFavCities(removeFav)
 
