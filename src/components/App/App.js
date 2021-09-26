@@ -25,7 +25,9 @@ const App = () => {
 
     const filtered = cities.filter(city => city.isFavorited === true)
 
-    console.log(filtered, 'filtered variable renderPage function App.js');
+    filtered.forEach(city => console.log(city.name, 'cities inside isFavorited array App.js'))
+    // console.log(filtered, 'renderPage invoked App.js');
+    
   }
 
   const retrieveCity = (data) => {
@@ -37,7 +39,7 @@ const App = () => {
   }
 
   const handleFavorite = (data) => {
-    console.log(data.isFavorited, ` :${data.name} inside INSIDE HANDLE FAVORITE APP.JS`);
+    // console.log(data.isFavorited, ` :${data.name} inside INSIDE HANDLE FAVORITE APP.JS`);
   }
   
   useEffect(() => {
