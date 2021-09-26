@@ -2,7 +2,12 @@ import './SavedContainer.css';
 import SavedCity from '../SavedCity/SavedCity';
 
 const Saved = ({ favorites, handleFavorite }) => {
-  // console.log(favorites, 'favorites');
+  // console.log(favorites.isFavorited, 'favorites');
+  // const test = () => {
+  //   favorites.forEach(ele => console.log(ele.isFavorited, ' ', ele.name, ' :isFavorited status'))
+  // }
+
+  // test()
   const savedCity = favorites.map( ele => {
     return (
       <SavedCity 
