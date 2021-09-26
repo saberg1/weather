@@ -17,16 +17,9 @@ const App = () => {
     const cleanedData = await cleanData(fetched) 
     addCity ( cleanedData )
   }
-  //filter through cities, find the ones with isFavorited propery and add them to array -- should be state?
-  // ormake array inside function
 
   const renderPage = () => {
-    // console.log('renderPage invoked');
-    // const arr = [ ]
-
     const filtered = cities.filter(city => city.isFavorited === true)
-
-    // filtered.forEach(city => console.log(city.name, 'cities inside isFavorited array App.js'))
     setFavCities(filtered)
   }
 
@@ -65,71 +58,3 @@ const App = () => {
     );
   }
   export default App;
-  // {
-  //   <CityContainer 
-  //   handleFavorite={handleFavorite} 
-  //   cities={cities}
-  //   />} 
-  
-  {/* <main className='main'>
-  <CityContainer handleFavorite={handleFavorite} cities={cities}/>  <<<<< the render line code
-<Header renderPage={renderPage} >
-  <SearchBar retrieveCity={retrieveCity} />
-</Header>
-<Switch>
-<div className='header-controller'> 
-   </div> 
-  <Route exact path='/' render={() => {
-    <CityContainer 
-      handleFavorite={handleFavorite} 
-      cities={cities}
-    />
-  }}/>
-  <Route path='/saved' component={Saved} />
-  <CityContainer handleFavorite={handleFavorite} cities={cities}/> 
-  <Saved /> 
-</Switch>
-</main>  */}
-  
-
-// export default App;
-
-// const indy = {
-//   coord: {
-//     lon:-86.158,
-//     lat:39.7684
-//   },
-//     weather:[{
-//         id:803,
-//         main:'Clouds',
-//         description:'broken clouds',
-//         icon:'04d'
-//     }],
-//     base:'stations',
-//     main: {
-//       temp:287.52,
-//       feels_like:286.94,
-//       temp_min:284.57,
-//       temp_max:289.33,
-//       pressure:1015,
-//       humidity:74
-//     },
-//     visibility:10000,
-//     wind:{
-//       speed:7.2,
-//       deg:300
-//     },
-//     clouds: {all:75},
-//     dt: 1632410079,
-//     sys:{
-//       type:2,
-//       id:2037844,
-//       country: 'US',
-//       sunrise:1632396804,
-//       sunset:1632440425
-//     },
-//     timezone:-14400,
-//     id:4259418,
-//     name:'Indianapolis',
-//     cod:200
-// }

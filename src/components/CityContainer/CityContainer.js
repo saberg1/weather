@@ -1,5 +1,5 @@
 import CityCard from '../CityCard/CityCard';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './CityContainer.css';
 
 const CityContainer = ({ cities, handleFavorite }) => {
@@ -35,10 +35,6 @@ const CityContainer = ({ cities, handleFavorite }) => {
   const saveLocStor = (obj) => {
     localStorage.setItem(obj.id, JSON.stringify(obj))
   }
-
-  useEffect(() => {
-  
-  }, [])
 
     const cityCards = cities.map( ele => {
       return (
