@@ -19,9 +19,7 @@ const App = () => {
   }
 
   const renderPage = async () => {
-    const filtered = cities.filter(city => city.isFavorited === true) // list of 
-    // const list = retrieveLocStor(filtered)
-    // console.log(list, ' :list inside renderPage')
+    const filtered = cities.filter(city => city.isFavorited === true) 
     setFavCities(filtered)
     await retrieveLocStor(filtered)
   }
@@ -37,7 +35,6 @@ const App = () => {
   }
 
   const handleFavorite = (data) => {
-    // console.log(data, ' :data logged inside handleFavorite');
     if(data.isFavorited) {
       remFav(data)
     } else {
@@ -50,17 +47,11 @@ const App = () => {
     setFavCities([...favCities, data])
     saveLocStor(data)
   }
-  //take state holding all cities array (cities)
-  // take cities[i].id === favCities[i].id 
-  //update thier .isFavorite there
 
     const remFav = (data) => {
       data.isFavorited = false
       const foundCity = cities.find(city => city.id === data.id)
       foundCity.isFavorited = false
-      console.log(foundCity, ' :FOUND CITY REMFAV APP.JS');
-      // console.log(data, ' :data inside remFav app.js<<<<<<'); // here its false
-      // console.log(cities, 'cities state inside remfav app.js'); //here its still true
       const removeFav = favCities.filter(city => city.id !== data.id)
       setFavCities(removeFav)
 

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './CityContainer.css';
 
 const CityContainer = ({ cities, handleFavorite }) => {
-  // console.log(cities, ' :cities inside CityContainer.js')
+  
     const cityCards = cities.map( ele => {
       return (
         <CityCard 

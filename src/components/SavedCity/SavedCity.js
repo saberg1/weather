@@ -3,7 +3,7 @@ import saved from '../../images/saved.png'
 import unsaved from '../../images/unsaved.png'
 
 const SavedCity = ({ name, weather, handleFavorite, city, fav }) => {
-  // console.log(fav, ' :fav inside SavedCity.js');
+
   return(
     <article className='city-card'>
       <h1>{name}</h1>
