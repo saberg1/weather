@@ -2,17 +2,8 @@ import './SavedCity.css';
 import saved from '../../images/saved.png'
 import unsaved from '../../images/unsaved.png'
 
-const SavedCity = ({ name, weather, handleFavorite, city }) => {
-
-  // const test = () => {
-
-  //   console.log(cities, 'cities prop in SavedCity');
-  // }
-  // const toggleImage = () => {
-  //   const image = fav ? '❤️' : '♡'
-  // }
-
-  // console.log(props, 'test');
+const SavedCity = ({ name, weather, handleFavorite, city, fav }) => {
+  // console.log(fav, ' :fav inside SavedCity.js');
   return(
     <article className='city-card'>
       <h1>{name}</h1>
