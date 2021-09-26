@@ -2,15 +2,8 @@ import './CityCard.css';
 import saved from '../../images/saved.png'
 import unsaved from '../../images/unsaved.png'
 
-const CityCard = ({ fav, updateFavorite, cities, name, hiTemp, loTemp, icon, weather }) => {
+const CityCard = ({ fav, handleFavorite, cities, name, hiTemp, loTemp, icon, weather }) => {
 
-  // const test = () => {
-
-  //   console.log(cities, 'cities prop in CityCard');
-  // }
-  // const toggleImage = () => {
-  //   const image = fav ? '❤️' : '♡'
-  // }
   return(
     <article className='city-card'>
       <h1>{name}</h1>
@@ -21,7 +14,7 @@ const CityCard = ({ fav, updateFavorite, cities, name, hiTemp, loTemp, icon, wea
       <h3>{weather}</h3>
       <img className='favorite' 
         src={fav ? saved : unsaved}
-        onClick={() => updateFavorite(cities)} />
+        onClick={() => handleFavorite(cities)} />
     </article>
   )
 };
