@@ -32,29 +32,23 @@ const App = () => {
   }
 
   const handleFavorite = (data) => {
-    // const filtered = cities.filter(city => city.isFavorited === true)
     if(data.isFavorited) {
       remFav(data)
     } else {
       addFav(data)
     }
-    console.log(data, 'data inside handle favorite');
   }
 
     const addFav = (data) => {
-    // console.log(data, ' :addFav(data) invoked App.js');
     data.isFavorited = true
     setFavCities([...favCities, data])
-    // handleFavorite(data)
     saveLocStor(data)
   }
 
     const remFav = (data) => {
-    // console.log(data, ' :remFav(data) invoked App.js');
     data.isFavorited = false
     const removeFav = favCities.filter(city => city.id !== data.id)
     setFavCities(removeFav)
-    // handleFavorite(data)
     remLocStor(data)
   }
 
@@ -66,8 +60,6 @@ const App = () => {
     localStorage.setItem(obj.id, JSON.stringify(obj))
   }
 
-
-  
   useEffect(() => { }, [])
   
   return (
@@ -81,6 +73,7 @@ const App = () => {
           handleFavorite={handleFavorite}
         />}/>
         <Route path='/saved' render={() => <SavedContainer 
+          handleFavorite={handleFavorite}
           favorites={favCities}
         /> } />
       </Switch>

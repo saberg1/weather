@@ -1,7 +1,7 @@
 import './SavedContainer.css';
 import SavedCity from '../SavedCity/SavedCity';
 
-const Saved = ({ favorites }) => {
+const Saved = ({ favorites, handleFavorite }) => {
   // console.log(favorites, 'favorites');
   const savedCity = favorites.map( ele => {
     return (
@@ -14,8 +14,8 @@ const Saved = ({ favorites }) => {
         fav={ele.isFavorited}
         // icon={ele.weather[0].icon}
         weather={ele.weather[0].description}
-        // cities={ele}
-        // updateFavorite={updateFavorite}
+        city={ele}
+        handleFavorite={handleFavorite}
       />
     )
   })

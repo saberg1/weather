@@ -2,7 +2,7 @@ import './SavedCity.css';
 import saved from '../../images/saved.png'
 import unsaved from '../../images/unsaved.png'
 
-const SavedCity = ({ name, weather }) => {
+const SavedCity = ({ name, weather, handleFavorite, city }) => {
 
   // const test = () => {
 
@@ -24,6 +24,7 @@ const SavedCity = ({ name, weather }) => {
       {/* <img className='favorite' 
         src={fav ? saved : unsaved}
         onClick={() => updateFavorite(cities)} /> */}
+        <button onClick={() => handleFavorite(city)}>favBtn</button>
     </article>
   )
 };
