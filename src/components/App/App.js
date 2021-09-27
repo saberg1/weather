@@ -6,11 +6,13 @@ import Header from '../Header/Header';
 import { Route, Switch } from 'react-router';
 import { cleanData } from '../../utils';
 import CityContainer from '../CityContainer/CityContainer';
+import hero from '../../images/hero.jpg'
 import './App.css';
 
 const App = () => {
   const [cities, setCities] = useState([]);
   const [favCities, setFavCities] = useState([]);
+  const [display, setDisplay] = useState(false)
   
   const retrieveCity = async (city) => { 
     if(compareCitiesVsFetchCall(city)){
@@ -41,9 +43,7 @@ const App = () => {
     addCity ( cleanedData );
   };
 
-  const addCity = (city) => {
-    const add = setCities([...cities, city])
-    };
+  const addCity = (city) => setCities([...cities, city]);
   
   const renderPage = () => {
     const filtered = cities.filter(city => city.isFavorited === true);
@@ -83,18 +83,21 @@ const App = () => {
   
   return (
     <main className='main'>
-      <Header renderPage={renderPage} >
+      {/* <img className='hero' alt='hero' src={hero}/> */}
+      <Header>
         <SearchBar retrieveCity={retrieveCity} />
       </Header>
       <Switch>
       
         <Route exact path='/' render={() => <CityContainer
           cities={cities}
+          renderPage={renderPage} 
           handleFavorite={handleFavorite}
         />}/>
         <Route path='/saved' render={() => <SavedContainer 
-          handleFavorite={handleFavorite}
           favorites={favCities}
+          renderPage={renderPage} 
+          handleFavorite={handleFavorite}
         /> } />
       </Switch>
     </main>

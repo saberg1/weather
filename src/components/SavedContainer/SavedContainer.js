@@ -1,7 +1,8 @@
 import './SavedContainer.css';
+import { Link } from 'react-router-dom';
 import SavedCity from '../SavedCity/SavedCity';
 
-const Saved = ({ favorites, handleFavorite }) => {
+const Saved = ({ favorites, handleFavorite, renderPage }) => {
   
   const savedCity = favorites.map( ele => {
     return (
@@ -21,6 +22,9 @@ const Saved = ({ favorites, handleFavorite }) => {
   })
 return (
   <section className='city-container'>
+      <span className='fav'>
+        <Link to='/saved'> <button className='fav-btn' onClick={renderPage}> Show Favorites </button> </Link>
+      </span> 
     {savedCity}
   </section>
 )

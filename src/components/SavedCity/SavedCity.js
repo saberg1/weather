@@ -6,16 +6,13 @@ const SavedCity = ({ name,hiTemp, loTemp, fav, icon, weather, handleFavorite, ci
 
   return(
     <article className='city-card'>
-      <h1>{name}</h1>
+      <div className='card-header'>
+        <h1>{name}</h1>
+        <img className='favorite' src={fav ? saved : unsaved} onClick={() => handleFavorite(city)} />
+      </div>
       <h3>Hi:{hiTemp} | Lo:{loTemp}</h3>
-      {/* <h3></h3> */}
-      {/* <img src={icon}/> */}
-
+      <img className='icon-img' alt='icon' src={`http://openweathermap.org/img/wn/${icon}@2x.png`}/>
       <h3>{weather}</h3>
-      <img className='favorite' 
-        src={fav ? saved : unsaved}
-        onClick={() => handleFavorite(city)} />
-        <button onClick={() => handleFavorite(city)}>favBtn</button>
     </article>
   )
 };
