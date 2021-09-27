@@ -1,5 +1,4 @@
 import CityCard from '../CityCard/CityCard';
-import { useState } from 'react';
 import './CityContainer.css';
 
 const CityContainer = ({ cities, handleFavorite }) => {

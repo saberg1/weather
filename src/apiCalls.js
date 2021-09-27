@@ -1,5 +1,5 @@
 // import { cleanData } from '../../utils';
-import { cleanData } from "./utils"
+// import { cleanData } from "./utils"
 
 // export const fetchData = async (city, coordinates) => {
 

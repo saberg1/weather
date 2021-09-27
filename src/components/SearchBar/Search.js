@@ -10,7 +10,7 @@ const SearchBar = ({ retrieveCity }) => {
   })
 
   const handleClick = (city) => { //
-    const formatedCity = city.split(' ')[0]
+    const formatedCity = city.split(', ')[0]
     retrieveCity(formatedCity) //invokes city with just first name
     setCity('')
   }

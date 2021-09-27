@@ -12,20 +12,43 @@ const App = () => {
   const [cities, setCities] = useState([]);
   const [favCities, setFavCities] = useState([]);
   
-  const retrieveCity = data => fetchCall(data);
+  const retrieveCity = async (city) => { 
+    if(compareCitiesVsFetchCall(city)){
+      exist(city)
+    } else {
+      await fetchCall(city);
+    }
+  };
   
+  const compareCitiesVsFetchCall = (city) => {
+    const confirm = cities.find(ele => ele.name === city)
+    const exist = confirm ? true : false
+    return exist
+  }
+
+  const exist = city => {
+    alert(`${city} is already added. Please select another city.`)
+    // return (
+    //   <div>
+    //     <h1>{`${city} is already added`}</h1>
+    //   </div>
+    // )
+  }
+
   const fetchCall = async (city) => {
     const fetched = await fetchData(city);
     const cleanedData = await cleanData(fetched) ;
     addCity ( cleanedData );
   };
 
-  const addCity = city => setCities( [...cities, city] );
+  const addCity = (city) => {
+    const add = setCities([...cities, city])
+    };
   
-  const renderPage = async () => {
+  const renderPage = () => {
     const filtered = cities.filter(city => city.isFavorited === true);
     setFavCities(filtered);
-    await retrieveLocStor(filtered);
+    retrieveLocStor(filtered);
   };
 
   const handleFavorite = data => data.isFavorited ? remFav(data) : addFav(data);
@@ -50,13 +73,13 @@ const App = () => {
   const saveLocStor = obj => localStorage.setItem(obj.id, JSON.stringify(obj));
 
   const retrieveLocStor = () => {
-    const keys = Object.keys(localStorage).map(element => {
-      return JSON.parse(localStorage.getItem(element));
-    })
+    const keys = Object.keys(localStorage).map(ele => JSON.parse(localStorage.getItem(ele)))
     setFavCities(keys);
   }
 
-  useEffect(() => retrieveLocStor(), []);
+  useEffect(() => {
+    retrieveLocStor()
+  }, []);
   
   return (
     <main className='main'>
@@ -64,6 +87,7 @@ const App = () => {
         <SearchBar retrieveCity={retrieveCity} />
       </Header>
       <Switch>
+      
         <Route exact path='/' render={() => <CityContainer
           cities={cities}
           handleFavorite={handleFavorite}
@@ -76,5 +100,5 @@ const App = () => {
     </main>
     );
   };
-  
+
   export default App;
