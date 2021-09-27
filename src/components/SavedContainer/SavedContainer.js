@@ -12,7 +12,7 @@ const Saved = ({ favorites, handleFavorite }) => {
         hiTemp={ele.main.temp_max}
         loTemp={ele.main.temp_min}
         fav={ele.isFavorited}
-        // icon={ele.weather[0].icon}
+        icon={ele.weather[0].icon}
         weather={ele.weather[0].description}
         city={ele}
         handleFavorite={handleFavorite}
