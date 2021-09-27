@@ -1,3 +1,28 @@
 .header {
-  margin-right: 80rem;
+  display: flex;
+  align-items: center;
+  height: 40vh;
+  width: 100vw;
+  justify-content: space-around;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  border-bottom: 4px #2a9d8f;
+}
+
+.hero {
+  object-fit: contain;
+  position: absolute;
+  width: 100%;
+}
+
+.headerh1 {
+  text-decoration: none;
+  z-index: 1;
+}
+
+.search-input {
+  border: none;
+  position: relative;
+  z-index: 1;
 }

@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import CityCard from '../CityCard/CityCard';
 import './CityContainer.css';
 
-const CityContainer = ({ cities, handleFavorite }) => {
-  
+const CityContainer = ({ cities, handleFavorite, renderPage }) => {
+
     const cityCards = cities.map( ele => {
       return (
         <CityCard 
@@ -12,7 +13,7 @@ const CityContainer = ({ cities, handleFavorite }) => {
           hiTemp={ele.main.temp_max}
           loTemp={ele.main.temp_min}
           fav={ele.isFavorited}
-          // icon={ele.weather[0].icon}
+          icon={ele.weather[0].icon}
           weather={ele.weather[0].description}
           cities={ele}
           handleFavorite={handleFavorite}
@@ -21,6 +22,9 @@ const CityContainer = ({ cities, handleFavorite }) => {
     })
   return (
     <section className='city-container'>
+      <span className='fav'>
+        <Link to='/saved'> <button className='fav-btn' onClick={renderPage}> Show Favorites </button> </Link>
+      </span> 
       {cityCards}
     </section>
   )
