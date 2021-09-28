@@ -23,7 +23,7 @@ const Saved = ({ favorites, handleFavorite, renderPage }) => {
 return (
   <section className='city-container'>
       <span className='fav'>
-        <Link to='/saved'> <button className='fav-btn' onClick={renderPage}> Show Favorites </button> </Link>
+        <Link to='/'> <button> Show All Cities </button> </Link>
       </span> 
     {savedCity}
   </section>
