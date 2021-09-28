@@ -1,6 +1,6 @@
 <div align="center">
 <p>An application for users to check the current weather in thier city</p>
-<a href="weathernow88.netlify.app/">View Deployed Site Here</a>
+<a href="https://www.weathernow88.netlify.app/">View Deployed Site Here</a>
 </div>
 
 
