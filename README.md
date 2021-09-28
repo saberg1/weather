@@ -21,8 +21,7 @@
 
 ### Summary
 
-
-
+This project is meant to show off my knowledge of the techonoliges I have since learned while in school at Turing. 
  
 ### Tech Used
 
