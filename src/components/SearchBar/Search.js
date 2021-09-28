@@ -1,13 +1,9 @@
 import { useState } from 'react';
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
 import './Search.css';
 
 const SearchBar = ({ retrieveCity }) => {
   const [city, setCity] = useState('')
-  const [coordinates, setCoordinates] = useState({
-    lat: null,
-    lng: null
-  })
 
   const handleClick = (city) => {
     const formatedCity = city.split(', ')[0]
@@ -17,8 +13,6 @@ const SearchBar = ({ retrieveCity }) => {
 
   const handleSelect = async (value) => {
     const result = await geocodeByAddress(value)
-    const latLng = await getLatLng(result[0])
-    setCoordinates(latLng)
     setCity(result)
     handleClick(value)
   }
