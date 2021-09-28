@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
-import hero from './images/hero.jpg'
 
 ReactDOM.render(
   <BrowserRouter>
