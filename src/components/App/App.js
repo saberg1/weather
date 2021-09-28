@@ -38,6 +38,7 @@ const App = () => {
   }
 
   const fetchCall = async (city) => {
+    console.log(city, 'ciry in app.js');
     const fetched = await fetchData(city);
     const cleanedData = await cleanData(fetched) ;
     addCity ( cleanedData );
