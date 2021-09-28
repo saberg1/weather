@@ -10,5 +10,6 @@ export const cleanData = (data) => {
 
   data.isFavorited = false
 
+  console.log(data, ' :data logged in utils.js');
   return data
 }

@@ -23,3 +23,18 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import detroit from '../fixtures/weatherData.json'
+
+const key = 'adb5990def9e15662c0b51eae2be289d'
+const city = 'detroit'
+
+Cypress.Commands.add('homePage', () => {
+  cy.visit('http://localhost:3000/');
+});
+
+Cypress.Commands.add('interceptFetch', () => {
+  cy.intercept('GET', `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`, {
+    statusCode: 201,
+    body: detroit
+  });
+});
