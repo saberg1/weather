@@ -6,13 +6,11 @@ import Header from '../Header/Header';
 import { Route, Switch } from 'react-router';
 import { cleanData } from '../../utils';
 import CityContainer from '../CityContainer/CityContainer';
-import hero from '../../images/hero.jpg'
 import './App.css';
 
 const App = () => {
   const [cities, setCities] = useState([]);
   const [favCities, setFavCities] = useState([]);
-  const [display, setDisplay] = useState(false)
   
   const retrieveCity = async (city) => { 
     if(compareCitiesVsFetchCall(city)){
@@ -30,11 +28,6 @@ const App = () => {
 
   const exist = city => {
     alert(`${city} is already added. Please select another city.`)
-    // return (
-    //   <div>
-    //     <h1>{`${city} is already added`}</h1>
-    //   </div>
-    // )
   }
 
   const fetchCall = async (city) => {

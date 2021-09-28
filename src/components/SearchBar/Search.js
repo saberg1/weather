@@ -9,9 +9,9 @@ const SearchBar = ({ retrieveCity }) => {
     lng: null
   })
 
-  const handleClick = (city) => { //
+  const handleClick = (city) => {
     const formatedCity = city.split(', ')[0]
-    retrieveCity(formatedCity) //invokes city with just first name
+    retrieveCity(formatedCity)
     setCity('')
   }
 
@@ -20,7 +20,7 @@ const SearchBar = ({ retrieveCity }) => {
     const latLng = await getLatLng(result[0])
     setCoordinates(latLng)
     setCity(result)
-    handleClick(value) // calls api call
+    handleClick(value)
   }
 
   return(
