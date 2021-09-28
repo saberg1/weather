@@ -19,7 +19,7 @@
 
 //const icon =  http://openweathermap.org/img/wn/${icon}@2x.png -- data.weather[0].icon
 
-export const fetchData = (city, coordinates) => {
+export const fetchData = (city) => {
 
   let apiKey = 'adb5990def9e15662c0b51eae2be289d'
 

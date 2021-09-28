@@ -8,7 +8,7 @@ const CityCard = ({ fav, handleFavorite, cities, name, hiTemp, loTemp, icon, wea
     <article className='city-card'>
       <div className='card-header'>
         <h1>{name}</h1>
-        <img className='favorite' src={fav ? saved : unsaved} onClick={() => handleFavorite(cities)} />
+        <img alt='favorite' className='favorite' src={fav ? saved : unsaved} onClick={() => handleFavorite(cities)} />
       </div>
       <h3>Hi:{hiTemp} | Lo:{loTemp}</h3>
       <img className='icon-img' alt='icon' src={`http://openweathermap.org/img/wn/${icon}@2x.png`}/>
