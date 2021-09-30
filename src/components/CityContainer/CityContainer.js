@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import CityCard from '../CityCard/CityCard';
+import PropTypes from 'prop-types';
 import './CityContainer.css';
 
 const CityContainer = ({ cities, handleFavorite, renderPage }) => {
@@ -31,3 +32,9 @@ const CityContainer = ({ cities, handleFavorite, renderPage }) => {
 };
 
 export default CityContainer;
+
+CityContainer.propTypes = {
+  city: PropTypes.array,
+  handleFavorite: PropTypes.func,
+  renderPage: PropTypes.func
+};
