@@ -33,9 +33,7 @@ const App = () => {
     return exist
   }
 
-  const exist = city => {
-    alert(`${city} is already added. Please select another city.`)
-  }
+  const exist = city => alert(`${city} is already added. Please select another city.`)
 
   const fetchCall = async (city) => {
     const fetched = await fetchData(city);
@@ -77,9 +75,7 @@ const App = () => {
     setFavCities(keys);
   }
 
-  useEffect(() => {
-    retrieveLocStor()
-  }, []);
+  useEffect(() => { retrieveLocStor() }, []);
   
   return (
     <main className='main'>
