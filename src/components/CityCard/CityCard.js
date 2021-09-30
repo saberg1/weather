@@ -1,9 +1,10 @@
 import './CityCard.css';
-import saved from '../../images/saved.png'
-import unsaved from '../../images/unsaved.png'
+import saved from '../../images/saved.png';
+import PropTypes from 'prop-types';
+import unsaved from '../../images/unsaved.png';
 
 const CityCard = ({ fav, handleFavorite, cities, name, hiTemp, loTemp, icon, weather }) => {
-
+  
   return(
     <article className='city-card'>
       <div className='card-header'>
@@ -18,3 +19,15 @@ const CityCard = ({ fav, handleFavorite, cities, name, hiTemp, loTemp, icon, wea
 };
 
 export default CityCard;
+
+
+CityCard.propTypes = {
+  fav: PropTypes.bool,
+  handleFavorite: PropTypes.func,
+  cities: PropTypes.object,
+  name: PropTypes.string,
+  hiTemp: PropTypes.number,
+  loTemp: PropTypes.number,
+  icon: PropTypes.string,
+  weather: PropTypes.string
+};
