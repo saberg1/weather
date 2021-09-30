@@ -6,6 +6,7 @@ import Header from '../Header/Header';
 import { Route, Switch } from 'react-router';
 import { cleanData } from '../../utils';
 import CityContainer from '../CityContainer/CityContainer';
+import PropTypes from 'prop-types';
 import './App.css';
 
 const App = () => {
@@ -98,3 +99,12 @@ const App = () => {
   };
 
   export default App;
+
+  App.propTypes = {
+    favCities: PropTypes.array,
+    cities: PropTypes.array,
+    retrieveCity: PropTypes.func,
+    renderPage: PropTypes.func,
+    handleFavorite: PropTypes.func
+  };
+  
