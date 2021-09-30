@@ -1,8 +1,9 @@
-import './SavedContainer.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import SavedCity from '../SavedCity/SavedCity';
+import './SavedContainer.css';
 
-const Saved = ({ favorites, handleFavorite, renderPage }) => {
+const Saved = ({ favorites, handleFavorite }) => {
   
   const savedCity = favorites.map( ele => {
     return (
@@ -31,3 +32,9 @@ return (
 };
 
 export default Saved;
+
+
+Saved.propTypes = {
+  favorites: PropTypes.array,
+  handleFavorite: PropTypes.func
+};
