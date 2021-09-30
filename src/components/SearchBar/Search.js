@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
+import PropTypes from 'prop-types';
 import './Search.css';
 
 const SearchBar = ({ retrieveCity }) => {
@@ -51,3 +52,12 @@ const SearchBar = ({ retrieveCity }) => {
 }
 
 export default SearchBar;
+
+SearchBar.propTypes = {
+  city: PropTypes.array,
+  retrieveCity: PropTypes.func,
+  getInputProps: PropTypes.object,
+  suggestions: PropTypes.object,
+  getSuggestionItemProps: PropTypes.object,
+  loading: PropTypes.object
+};
