@@ -12,12 +12,18 @@ import './App.css';
 const App = () => {
   const [cities, setCities] = useState([]);
   const [favCities, setFavCities] = useState([]);
+  const [error, setError] = useState('')
   
   const retrieveCity = async (city) => { 
     if(compareCitiesVsFetchCall(city)){
       exist(city)
     } else {
-      await fetchCall(city);
+      try {
+        await fetchCall(city);
+        
+      } catch (err) {
+        setError(err)
+      }
     }
   };
   
@@ -77,23 +83,25 @@ const App = () => {
   
   return (
     <main className='main'>
-      {/* <img className='hero' alt='hero' src={hero}/> */}
       <Header>
         <SearchBar retrieveCity={retrieveCity} />
       </Header>
-      <Switch>
-      
-        <Route exact path='/' render={() => <CityContainer
-          cities={cities}
-          renderPage={renderPage} 
-          handleFavorite={handleFavorite}
-        />}/>
-        <Route path='/saved' render={() => <SavedContainer 
-          favorites={favCities}
-          renderPage={renderPage} 
-          handleFavorite={handleFavorite}
-        /> } />
-      </Switch>
+      {error ? 
+        <Switch>
+          <Route exact path='/' render={() => <CityContainer
+            cities={cities}
+            renderPage={renderPage} 
+            handleFavorite={handleFavorite}
+          />}/>
+          <Route path='/saved' render={() => <SavedContainer 
+            favorites={favCities}
+            renderPage={renderPage} 
+            handleFavorite={handleFavorite}
+          /> } /> 
+        </Switch>
+      :
+        <h1 className='error'>Sorry there is a problem with the servers. Please Try again later</h1>
+      }
     </main>
     );
   };
