@@ -96,7 +96,7 @@ const App = () => {
           /> } /> 
         </Switch>
       :
-        <h1 className='error'>Sorry there is a problem with the servers. Please Try again later</h1>
+        <h1 className='error' >Sorry there is a problem with the servers. Please Try again later</h1>
       }
     </main>
     );
