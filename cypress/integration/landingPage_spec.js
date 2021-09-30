@@ -11,7 +11,7 @@ describe('Main Page rendering', () => {
     })
     it('User should be able to select a city and see the city card loaded', () => {
       cy.get('[type="text"]').type('detroit').should('have.value', 'detroit')
-        .interceptFetch().get('[type="text"]').type('{enter}').clear()
+        .interceptFetch(201).get('[type="text"]').type('{enter}').clear()
         .get('.city-card').should('have.length', 1)
         .get('.card-header > h1').contains('SteveLandia')
     })
