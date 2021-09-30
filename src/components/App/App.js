@@ -86,7 +86,7 @@ const App = () => {
       <Header>
         <SearchBar retrieveCity={retrieveCity} />
       </Header>
-      {error ? 
+      {!error ? 
         <Switch>
           <Route exact path='/' render={() => <CityContainer
             cities={cities}
