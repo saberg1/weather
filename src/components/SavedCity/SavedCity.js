@@ -1,6 +1,7 @@
 import './SavedCity.css';
 import saved from '../../images/saved.png'
 import unsaved from '../../images/unsaved.png'
+import PropTypes from 'prop-types';
 
 const SavedCity = ({ name,hiTemp, loTemp, fav, icon, weather, handleFavorite, city }) => {
 
@@ -18,3 +19,15 @@ const SavedCity = ({ name,hiTemp, loTemp, fav, icon, weather, handleFavorite, ci
 };
 
 export default SavedCity;
+
+
+SavedCity.propTypes = {
+  fav: PropTypes.bool,
+  handleFavorite: PropTypes.func,
+  city: PropTypes.object,
+  name: PropTypes.string,
+  hiTemp: PropTypes.number,
+  loTemp: PropTypes.number,
+  icon: PropTypes.string,
+  weather: PropTypes.string
+};
