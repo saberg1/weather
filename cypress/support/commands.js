@@ -38,3 +38,19 @@ Cypress.Commands.add('interceptFetch', () => {
     body: detroit
   });
 });
+
+Cypress.Commands.add('badFetch400', () => {
+  cy.intercept('GET', `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`, {
+    statusCode: 500,
+    body: detroit
+  });
+  cy.visit('http://localhost:3000/');
+});
+
+Cypress.Commands.add('badFetch500', () => {
+  cy.intercept('GET', `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`, {
+    statusCode: 500,
+    body: detroit
+  });
+  cy.visit('http://localhost:3000/');
+});
